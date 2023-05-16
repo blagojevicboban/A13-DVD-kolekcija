@@ -140,13 +140,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>A13.mdf</DependentUpon>
     </Content>
-    <Content Include="Backup\A13.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Backup\A13_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>A13.mdf</DependentUpon>
-    </Content>
     <Content Include="prosirenje.sql" />
     <Content Include="SQLQuery3.sql" />
   </ItemGroup>
