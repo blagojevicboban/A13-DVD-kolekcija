@@ -14,7 +14,7 @@ namespace A13
 {
     public partial class FormAnaliza : Form
     {
-        string connstr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\A13.mdf;Integrated Security=True";
+        SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\A13.mdf;Integrated Security=True");
         public FormAnaliza()
         {
             InitializeComponent();
@@ -32,7 +32,6 @@ namespace A13
                             "WHERE p.ProducentID=pf.ProducentID " + 
                             "AND pf.FilmID=f.FilmID " + 
                             "GROUP BY p.Ime";
-            SqlConnection conn = new SqlConnection(connstr);
             SqlCommand cmd = new SqlCommand(sql,conn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable(); 

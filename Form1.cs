@@ -8,7 +8,7 @@ namespace A13
 {
     public partial class Form1 : Form
     {
-        string connstr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\A13.mdf;Integrated Security=True";
+        SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\A13.mdf;Integrated Security=True");
         DataTable dtProd = new DataTable();
         public Form1()
         {
@@ -21,10 +21,10 @@ namespace A13
         }
         private void OsveziListuProducenata()
         {
-            SqlConnection conn = new SqlConnection(connstr);
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conn;
-            cmd.CommandText = "select ProducentID, Ime, Email from Producent";
+            cmd.CommandText = "select ProducentID, Ime, Email " +
+                              "from Producent";
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             try
             {
@@ -78,7 +78,6 @@ namespace A13
                 MessageBox.Show("Morate popuniti sva polja!");
                 return;
             }
-            SqlConnection conn = new SqlConnection(connstr);
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conn;
             cmd.CommandText = "UPDATE Producent " +
